@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Astuce javascript</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Filtrer une table</h2>
+      <p>Recherche du mot-clé dans la zone de saisie</p>
+
+      <input
+        id="myResearch"
+        class="areaPick"
+        type="text"
+        placeholder="Recherche sur les prénoms et les noms"
+        onkeyup="filter()"
+        style="margin-bottom: 15px"
+      />
+
+      <table id="array" class="array">
+        <tr>
+          <th style="width: 60%">Prénom Nom</th>
+          <th style="width: 40%">Pays</th>
+        </tr>
+        <tr>
+          <td>Adame Marc</td>
+          <td>Belgique</td>
+        </tr>
+        <tr>
+          <td>Aijaune Giles</td>
+          <td>États-Unis</td>
+        </tr>
+        <tr>
+          <td>Aubin Marie</td>
+          <td>Australie</td>
+        </tr>
+        <tr>
+          <td>Audine Anne</td>
+          <td>Australie</td>
+        </tr>
+        <tr>
+          <td>Barre Amine</td>
+          <td>Algérie</td>
+        </tr>
+        <tr>
+          <td>Bonbeur Jean</td>
+          <td>France</td>
+        </tr>
+        <tr>
+          <td>Braltar Giles</td>
+          <td>Madagascar</td>
+        </tr>
+        <tr>
+          <td>Breye Jean</td>
+          <td>France</td>
+        </tr>
+        <tr>
+          <td>Cow Harry</td>
+          <td>Royaume-Unis</td>
+        </tr>
+        <tr>
+          <td>Dagin Bruno</td>
+          <td>Suisse</td>
+        </tr>
+        <tr>
+          <td>De MontéCarlo Coralie</td>
+          <td>Italie</td>
+        </tr>
+        <tr>
+          <td>Débois Romain</td>
+          <td>France</td>
+        </tr>
+        <tr>
+          <td>Doeuf John</td>
+          <td>Canada</td>
+        </tr>
+        <tr>
+          <td>Douche Raël</td>
+          <td>Irak</td>
+        </tr>
+        <tr>
+          <td>Durine Anna-Lise</td>
+          <td>Belgique</td>
+        </tr>
+        <tr>
+          <td>Ecar Medi</td>
+          <td>Algérie</td>
+        </tr>
+        <tr>
+          <td>Feuille Emille</td>
+          <td>Suisse</td>
+        </tr>
+      </table>
+      <p style="margin-top: 40px">
+        <strong>Astuce :</strong> La recherche est exercée en majuscule pour
+        neutraliser les différences
+      </p>
+      <p>
+        Il faut changer tr(i).getElementsByTagName('td')[0] pour une recherche
+        sur la civilité (indice 1) à la place du nom (indice(0))
+      </p>
+    </div>
+    <script>
+      function filter() {
+        let line, filter, array, cell, text, i;
+
+        filter = document.getElementById("myResearch").value.toUpperCase();
+        array = document.getElementById("array");
+        line = document.getElementsByTagName("tr");
+
+        for (i = 0; i < line.length; i++) {
+          cell = line[i].getElementsByTagName("td")[0];
+
+          if (cell) {
+            text = cell.innerText;
+            if (text.toUpperCase().indexOf(filter) > -1) {
+              line[i].style.display = "";
+            } else {
+              line[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
