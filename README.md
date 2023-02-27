@@ -1,3 +1,3 @@
 # Filter_searchbar
 
-https://alois-zweber-filtergallery.netlify.app/
+https://alois-zweber-filtersearchbar.netlify.app/
